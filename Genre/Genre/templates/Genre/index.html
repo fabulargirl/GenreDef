@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Определение жанра текста</title>
+</head>
+
+
+
+<body
+        bgcolor="E5CDA8">   <!-- Фон сайта-->
+
+
+<div>
+    <div style="width: 100%; height: 72px; left: 0px; top: 0px; position: absolute; background: #DA936B; border-bottom: 2px #8A441D solid"></div>
+
+     <div>
+          <div style="left: 201px; top: 24px; position: absolute; color: black; font-size: 20px; font-family: Lato; font-weight: 400; word-wrap: break-word">Определение жанра текста с помощью Text Mining</div>
+    <div style="right: 250px; top: 24px; position: absolute; color: black; font-size: 20px; font-family: Lato; font-weight: 400; word-wrap: break-word"><a href="/#">Войти</a></div>
+    <div style="right: 50px; top: 24px; position: absolute; color: black; font-size: 20px; font-family: Lato; font-weight: 400; word-wrap: break-word"><a href="/#">Зарегистрироваться</a></div>
+  </div>
+</div>
+
+
+<div>
+    <button class="btn-start" type="button">
+      Определить жанр
+    </button>
+
+    <button class="btn-load" type="button">
+      Загрузить текст
+    </button>
+
+    <form method="post">
+        <textarea class="textBox" id="textBox" placeholder="Введите или вставьте текст..."></textarea>
+        <input type="file" id="fileInput" accept=".txt">
+    </form>
+
+</div>
+
+<div style="right: 60px; top: 134px; width: 400px; height: 430px; position: absolute; background: white; border-radius: 15px"></div>
+
+</body>
+
+
+
+<style>
+   .textBox {
+   position: absolute;
+   width: 700px;
+   height: 430px;
+   left: 60px;
+   top: 134px;
+   background: white;
+   border-radius: 15px;
+   resize: none;
+   }
+
+    .btn-start {
+    position: absolute;
+    width: 262px;
+    height: 55px;
+    left: 503px;
+    top: 596px;
+    border-radius: 20px;
+    border: 1px #8A441D solid;
+
+    background: #DA936B;
+    color: black;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: 400;
+
+    }
+    .btn-load {
+    position: absolute;
+    width: 262px;
+    height: 55px;
+    left: 60px;
+    top: 596px;
+    border-radius: 20px;
+    border: 1px #8A441D solid;
+
+    background: #DA936B;
+    color: black;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: 400;
+
+    }
+
+    .btn-start:hover {
+       box-shadow: #AC6E4B 0 55px inset;
+    }
+
+    .btn-load:hover {
+       box-shadow: #AC6E4B 0 55px inset;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+    document.querySelector('.btn-load').addEventListener('click', function() {
+    document.getElementById('fileInput').click();
+});
+
+$("#fileInput").change(function(){
+	var reader = new FileReader();
+	reader.onload = function(e){
+		$("#textBox").val(e.target.result);
+	};
+	reader.readAsText($("#fileInput")[0].files[0], "UTF-8");
+});
+
+</script>
+
+</html>
